@@ -1,0 +1,51 @@
+/* reset */
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Amatic SC',sans-serif;
+}
+
+.text-xs{
+  font-size: 1rem;
+  }
+  
+  .text-s{
+  font-size: 1.2rem;
+  }
+  
+  .text-m{
+  font-size: 1.5rem;
+  }
+  
+  .text-l{
+  font-size: 2rem;
+  }
+  
+  .text-xl{
+  font-size: 3rem;
+  }
+
+.bold {
+  font-weight: bold
+}  
+
+.text-center {
+  text-align: center;
+}
+body {
+  min-width: 100%;
+}
+
+.header {
+  min-width: 100%;
+  width: 100%;
+  padding: 30px 0 30px 0;
+}
+
+.section {
+  margin: 0 auto;
+  padding: 30px;
+  max-width: 700px;
+  word-wrap: break-word;
+}
