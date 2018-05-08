@@ -1,17 +1,22 @@
 package main
 
 import (
-	"html/template"
-	"log"
+	"fmt"
 	"net/http"
 )
 
-func handleRequest(w http.ResponseWriter, req *http.Request) {
-	t, _ := template.ParseFiles("index.html")
-	t.Execute(w, nil)
+type liteHandler struct {
+	message string
+}
+
+func (m *liteHandler) ServeHTTP(w http.ResponseWriter, r *http.Request) {
+	fmt.Fprintf(w, m.message)
 }
 
 func main() {
-	http.HandleFunc("/", handleRequest)
-	log.Fatal(http.ListenAndServe(":1313", nil))
+	fs := http.FileServer(http.Dir("."))
+	http.Handle("/", fs)
+	hdl := &liteHandler{"Chao mung"}
+	http.Handle("/welcome", hdl)
+	http.ListenAndServe(":8000", nil)
 }
